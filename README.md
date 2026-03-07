@@ -23,10 +23,10 @@ Clone the repository and install the dependencies globally to use the CLI from a
 
 ```bash
 # Clone the repository
-git clone https://github.com/Muhammad-Rabee/Practice-fs.git
+git clone https://github.com/Muhammad-Rabee/fast-node.git
 
 # Navigate to the directory
-cd Practice-fs
+cd fast-node
 
 # Install dependencies
 npm install
