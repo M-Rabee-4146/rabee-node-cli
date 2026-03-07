@@ -1,16 +1,27 @@
+#!/usr/bin/env node
 import fsExtra from "fs-extra/esm";
 import inquirer from "inquirer";
 import { BackendOnly } from "./Configuration/BackendOnly.js";
-import {execSync} from "child_process";
+import { execSync } from "child_process";
+import path from "path";
+import chalk from "chalk";
 
 const practice = async () => {
     try {
-        console.log("STARTING  the Process");
+        console.log(chalk.greenBright("\n STARTING the Process\n"));
 
         const answer = await inquirer.prompt([{
             type: 'input',
             name: 'ProjectName',
-            message: 'Write the Name of main Folder'
+            message: 'Write the Name of main Folder',
+            validate: (input) => {
+                if (input.trim() === '') {
+                    return 'Project name cannot be empty';
+                } else if (input.includes(' ')) {
+                    return 'Project name cannot contain spaces';
+                }
+                return true;
+            }
 
         }, {
             type: 'rawlist',
@@ -26,29 +37,62 @@ const practice = async () => {
             choices: [
                 'MongoDB', 'Sqlite'
             ],
-            when: (answers) => answers.FrontendBackend !== 'Frontend' 
+            when: (answers) => answers.FrontendBackend !== 'Frontend'
+        }, {
+            type: 'rawlist',
+            name: 'OpenVsCode',
+            message: 'Do you want to open the project in VS Code After Creation?',
+            choices: [
+                'Yes', 'No'
+            ]
         }
+
         ]);
 
-        const newPath = `./output/${answer.ProjectName}`;
+        const newPath = path.join(process.cwd(), answer.ProjectName);
+        await fsExtra.pathExists(newPath).then (async exists => {
+            if (exists) {
+                await inquirer.prompt([{
+                    type: 'confirm',
+                    name: 'overwrite',
+                    message: `\nA folder with the name "${answer.ProjectName}" already exists. Do you want to overwrite it?`
 
-        await fsExtra.ensureDir(newPath);
-        // await fsExtra.copy('./template/dbTemp.js', `${newPath}/New.js`);
-
+                }]).then(async overwriteAnswer => {
+                    if (overwriteAnswer.overwrite) {
+                        await fsExtra.emptyDir(newPath);
+                        // await fsExtra.copy('./template/dbTemp.js', `${newPath}/New.js`);
+                    } else {
+                        console.log(chalk.redBright("\nProject creation cancelled. Please choose a different name or remove the existing folder."));
+                        process.exit(0);
+                    }
+                });
+            }
+        })
 
         if (answer.FrontendBackend == 'Both') {
             await fsExtra.ensureDir(`${newPath}/Frontend`);
-            BackendOnly(newPath,answer.BackendType);
-
+            await BackendOnly(newPath, answer.BackendType, answer.ProjectName);
+            if (answer.OpenVsCode == 'Yes') {
+                execSync(`code ${newPath}/Frontend`, { stdio: 'inherit' });
+                execSync(`code ${newPath}/Backend`, { stdio: 'inherit' });
+            }
         } else if (answer.FrontendBackend == 'Frontend') {
             await fsExtra.ensureDir(`${newPath}/Frontend`);
+            if (answer.OpenVsCode == 'Yes') {
+                execSync(`code ${newPath}/Frontend`, { stdio: 'inherit' });
+            }
         } else {
-            BackendOnly(newPath,answer.BackendType);
+            await BackendOnly(newPath, answer.BackendType, answer.ProjectName);
+            if (answer.OpenVsCode == 'Yes') {
+                execSync(`code ${newPath}/Backend`, { stdio: 'inherit' });
+            }
         }
 
-        console.log("projects Created Successfully")
+        console.log(chalk.greenBright("projects Created Successfully \n"));
+
     } catch (error) {
-        console.log("got the error", error);
+
+        console.log(chalk.red.bgWhiteBright("Got the error While Creating Project : \n"), error);
     }
 }
 

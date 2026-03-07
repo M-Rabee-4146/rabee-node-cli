@@ -1,16 +1,21 @@
 {
-  "name": "practice-fs",
+  "name": "@rabee/generate-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "installer.js",
+  "bin": {
+    "generate-app": "./installer.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
+  "files": ["installer.js","Configuration/","template/"],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "chalk": "^5.6.2",
     "fs-extra": "^11.3.3",
     "inquirer": "^13.3.0"
   }
