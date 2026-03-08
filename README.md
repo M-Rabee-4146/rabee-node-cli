@@ -1,5 +1,5 @@
 # rabee-node-cli 🚀
-
+ 
 [![npm version](https://img.shields.io/npm/v/rabee-node-cli.svg)](https://www.npmjs.com/package/rabee-node-cli)
 
 A powerful and intuitive CLI tool designed to jumpstart your full-stack development. Quickly scaffold Node.js backend projects with your choice of database, automated dependency installation, and seamless VS Code integration.
