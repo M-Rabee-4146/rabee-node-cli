@@ -1,6 +1,6 @@
 {
-  "name": "@rabee/quick-node",
-  "version": "1.0.0",
+  "name": "rabee-quick-node",
+  "version": "1.0.1",
   "description": "A professional CLI tool to scaffold structured Node.js projects with MongoDB/SQLite templates.",
   "main": "installer.js",
   "bin": {
@@ -15,6 +15,23 @@
     "Configuration/",
     "template/"
   ],
+  "keywords": [
+  "cli",
+  "node",
+  "mern",
+  "express",
+  "mongodb",
+  "sqlite",
+  "scaffold",
+  "generator",
+  "boilerplate",
+  "project-generator",
+  "authentication",
+  "multer",
+  "fullstack",
+  "backend-template",
+  "quick-node"
+],
   "author": "",
   "license": "ISC",
   "type": "module",

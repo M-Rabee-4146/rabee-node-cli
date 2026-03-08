@@ -1,4 +1,6 @@
-# @rabee/quick-node 🚀
+# rabee-quick-node 🚀
+
+[![npm version](https://img.shields.io/npm/v/rabee-quick-node.svg)](https://www.npmjs.com/package/rabee-quick-node)
 
 A powerful and intuitive CLI tool designed to jumpstart your full-stack development. Quickly scaffold Node.js backend projects with your choice of database, automated dependency installation, and seamless VS Code integration.
 
@@ -19,7 +21,15 @@ A powerful and intuitive CLI tool designed to jumpstart your full-stack developm
 
 ### Installation
 
-Clone the repository and install the dependencies globally to use the CLI from anywhere:
+#### 📦 Via NPM (Recommended)
+Install the tool globally to use it from anywhere:
+
+```bash
+npm install -g rabee-quick-node
+```
+
+#### 🛠 From Source (Development)
+If you want to contribute or run the latest version from source:
 
 ```bash
 # Clone the repository
@@ -31,19 +41,19 @@ cd quick-node
 # Install dependencies
 npm install
 
-# Link the CLI tool (Optional, to use 'rabee-quick-node' command)
+# Link the CLI tool
 npm link
 ```
 
 ### Usage
 
-Simply run the command and follow the prompts:
+Once installed, simply run the command in your terminal:
 
 ```bash
 rabee-quick-node
 ```
 
-Or run it directly using Node:
+Or run it directly using Node (if installed from source):
 
 ```bash
 node installer.js
@@ -81,6 +91,16 @@ Created by **Muhammad Rabee**. Focused on building tools that simplify the devel
 
 ---
 
-## 📄 License
+## � Changelog
+
+### v1.0.1
+- **Fixed**: Project naming consistency across all generated files.
+- **Fixed**: Improved error handling for invalid project names (spaces/empty).
+- **Added**: Enhanced CLI output with better styling using `chalk`.
+- **Improved**: Automated dependency installation reliability.
+
+---
+
+## �📄 License
 
 This project is licensed under the **ISC License**.
