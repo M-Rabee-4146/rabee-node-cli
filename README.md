@@ -1,27 +1,30 @@
 # rabee-node-cli 🚀
 
 [![npm version](https://img.shields.io/npm/v/rabee-node-cli.svg)](https://www.npmjs.com/package/rabee-node-cli)
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
-A powerful and intuitive CLI tool designed to jumpstart your full-stack development. Quickly scaffold Node.js backend projects with your choice of database, automated dependency installation, and seamless VS Code integration.
+A powerful and intuitive CLI tool designed to jumpstart your full-stack development. **rabee-node-cli** scaffolds structured Node.js backend projects and React Redux frontend applications with a premium, high-contrast design.
 
 ---
 
 ## ✨ Features
 
 - **Interactive CLI**: Easy-to-use prompts powered by `inquirer`.
-- **Backend Variety**: Choose between **MongoDB** (with Mongoose) and **SQLite**.
+- **Pre-Configured Templates**:
+    - **Frontend**: React + Redux + Tailwind CSS with premium **NPM-style branding**.
+    - **Backend**: Choose between **MongoDB** (with Mongoose) and **SQLite**.
 - **Automated Setup**: Installs dependencies and configures `package.json` automatically.
-- **Smart Scaffolding**: Structured files for Controllers, Models, Routes, and Middleware.
+- **Smart Scaffolding**: Clean architecture for Controllers, Models, Routes, and Middleware.
+- **Authentication Ready**: Includes pre-built login/signup logic and security middleware.
 - **VS Code Integration**: Automatically opens your newly created project in VS Code.
-- **Support for Both**: Option to generate Frontend, Backend, or a complete Full-Stack structure.
 
 ---
 
 ## 📋 Requirements
 
 Before using this tool, ensure you have the following installed:
-- **Node.js**: v16.x or higher (Recommended: Latest LTS)
-- **NPM**: v8.x or higher
+- **Node.js**: v18.x or higher
+- **NPM**: v9.x or higher
 
 ---
 
@@ -29,61 +32,43 @@ Before using this tool, ensure you have the following installed:
 
 ### Installation
 
-#### 📦 Via NPM (Recommended)
+#### 📦 Global Installation (Recommended)
 Install the tool globally to use it from anywhere:
 
 ```bash
 npm install -g rabee-node-cli
 ```
 
-#### 🛠 From Source (Development)
-If you want to contribute or run the latest version from source:
-
-```bash
-# Clone the repository
-git clone https://github.com/M-Rabee-4146/rabee-node-cli.git
-
-# Navigate to the directory
-cd rabee-node-cli
-
-# Install dependencies
-npm install
-
-# Link the CLI tool
-npm link
-```
-
 ### Usage
 
-Once installed, simply run the command in your terminal:
+Simply run the command in your terminal and follow the interactive prompts:
 
 ```bash
-rabee-node-cli
-```
-
-Or run it directly using Node (if installed from source):
-
-```bash
-node installer.js
+start-rncli
 ```
 
 ---
 
-## 🛠 Project Structure
+## 📂 Project Structure
 
-When you generate a project, you'll get a clean and professional architecture:
+When you generate a project, you'll get a professional, production-ready architecture:
 
-### Backend (Express)
-- `/controllers`: Logic for handling requests.
-- `/models`: Database schemas and configurations.
-- `/Routes`: API endpoints definition.
-- `/middleware`: Authentication and other request processing.
-- `/utils`: Helper functions.
-- `.env`: Environment variable configuration.
+### ⚛️ Frontend (React & Redux)
+- `/src/Redux`: Full state management setup with Redux Toolkit and persistence.
+- `/src/pages`: Responsive Login, Signup, and Dashboard templates.
+- `/src/components`: Reusable UI components (Loading, Modal, etc.).
+- **Theme**: Premium High-Contrast (Red/White/Black) visuals.
+
+### 🌐 Backend (Express)
+- `/controllers`: Request handling logic.
+- `/models`: Database schemas.
+- `/Routes`: API endpoint definitions.
+- `/middleware`: JWT authentication and security guards.
+- `.env`: Pre-configured environment variables.
 
 ---
 
-## 📂 Templates Included
+## 🛠 Templates Included
 
 ### 🍃 MongoDB Template
 A robust starter for MongoDB using Mongoose. Includes basic authentication middleware and structured models.
@@ -91,24 +76,28 @@ A robust starter for MongoDB using Mongoose. Includes basic authentication middl
 ### 💾 SQLite Template
 A lightweight and efficient starter using SQLite, perfect for local development and small-scale applications.
 
+### 🎨 React Redux Frontend
+A sleek, modern frontend template with a focused Authentication flow. Features a compact, single-screen Dashboard optimized for rapid development.
+
 ---
 
 ## 👨‍💻 About the Author
 
-Created by **Muhammad Rabee**. Focused on building tools that simplify the development workflow for modern developers.
+Created by **Muhammad Rabee**. Dedicated to building tools that simplify the modern development workflow.
 
 ---
 
-## � Changelog
+## 📜 Changelog
 
-### v1.0.1
-- **Fixed**: Project naming consistency across all generated files.
-- **Fixed**: Improved error handling for invalid project names (spaces/empty).
-- **Added**: Enhanced CLI output with better styling using `chalk`.
-- **Improved**: Automated dependency installation reliability.
+### v2.0.0 (Current)
+- **New Feature**: Added Premium React Redux Frontend template.
+- **Improved UI**: Applied NPM-inspired branding (Red/White/Black) across all frontend components.
+- **Refactoring**: Simplified Authentication flow and removed legacy POS components.
+- **Optimization**: Converted Dashboard to a compact, single-screen UI.
+- **Command Update**: Main CLI command updated to `start-rncli`.
 
 ---
 
-## �📄 License
+## 📄 License
 
 This project is licensed under the **ISC License**.

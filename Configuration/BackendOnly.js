@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 import path from "path";
 
 export const BackendOnly = async (newPath, backendType, BackendName) => {
-
+console.log(chalk.yellow("\nSetting up Backend...\n"));
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
     const templatePath = path.join(__dirname, "..", "template");
@@ -31,5 +31,5 @@ export const BackendOnly = async (newPath, backendType, BackendName) => {
     packageJson.author = "Muhammad Rabee";
     await fsExtra.writeJson(`${newPath}/Backend/package.json`, packageJson, { spaces: 2 });
 
-    console.log(chalk.yellow("\nJust update the .env File and You are Good to go...\n"));
+    console.log(chalk.yellow("\nBackend Setup Completed! Just update the .env File and You are Good to go...\n"));
 }

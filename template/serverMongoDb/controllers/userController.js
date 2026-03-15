@@ -47,7 +47,7 @@ exports.EditUserById = async (req, res) => {
 
 // Register user (no email verification, no OTP)
 exports.userSignup = async (req, res) => {
-  const { email, password, role } = req.body;
+  const { email, password, role } = req.body; 
   if (!email || !password) return res.status(400).json({ message: "Missing fields" });
 
   try {

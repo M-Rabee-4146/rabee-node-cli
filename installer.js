@@ -9,7 +9,7 @@ import { FrontendOnly } from "./Configuration/FrontendOnly.js";
 
 const practice = async () => {
     try {
-        console.log(chalk.greenBright("\n STARTING the Process\n"));
+        console.log(chalk.greenBright("\n 🚀 Welcome to Rabee Node CLI v2.0.0\n"));
 
         const answer = await inquirer.prompt([{
             type: 'input',
@@ -71,14 +71,14 @@ const practice = async () => {
         })
 
         if (answer.FrontendBackend == 'Both') {
-            await FrontendOnly(newPath);
+            await FrontendOnly(newPath,"Redux", `${answer.ProjectName}`);
             await BackendOnly(newPath, answer.BackendType, answer.ProjectName);
             if (answer.OpenVsCode == 'Yes') {
                 execSync(`code ${newPath}/Frontend`, { stdio: 'inherit' });
                 execSync(`code ${newPath}/Backend`, { stdio: 'inherit' });
             }
         } else if (answer.FrontendBackend == 'Frontend') {
-            await FrontendOnly(newPath);
+            await FrontendOnly(newPath,"Redux", `${answer.ProjectName}`);
             if (answer.OpenVsCode == 'Yes') {
                 execSync(`code ${newPath}/Frontend`, { stdio: 'inherit' });
             }

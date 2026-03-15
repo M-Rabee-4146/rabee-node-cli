@@ -1,10 +1,10 @@
 {
   "name": "rabee-node-cli",
-  "version": "1.0.0",
-  "description": "A professional CLI tool to scaffold structured Node.js projects with MongoDB/SQLite templates.",
+  "version": "2.0.0",
+  "description": "A professional CLI tool to scaffold structured Node.js projects with MongoDB/SQLite templates and React Redux Frontend.",
   "main": "installer.js",
   "bin": {
-    "rabee-node-cli": "./installer.js"
+    "start-rncli": "./installer.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "files": [
     "installer.js",
     "Configuration/",

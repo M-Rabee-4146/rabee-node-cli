@@ -4,13 +4,12 @@ const { verifyToken, restrictTo, checkIfFirstUser } = require('../middleware/aut
 const router = express.Router();
 
 router.post("/login", userController.userLogin);
-router.post("/register", checkIfFirstUser, userController.userSignup);
-
-router.use(verifyToken);
-router.use(verifyToken);
-router.get("/", userController.getAllUsers);
+router.post("/signup", userController.userSignup);
 router.post("/forget", userController.userForgotPassword);
 router.post("/Reset", userController.userResetPassword);
+
+router.use(verifyToken);
+router.get("/", userController.getAllUsers);
 router.get("/:id", userController.getUserById);
 router.put("/:id", userController.EditUserById);
 router.put("/:id/status", userController.toggleUserStatus);
