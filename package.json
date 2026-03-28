@@ -1,7 +1,7 @@
 {
   "name": "rabee-node-cli",
   "preferGlobal": true,
-  "version": "2.2.0",
+  "version": "2.4.0",
   "description": "A professional CLI tool to scaffold structured Node.js projects with MongoDB/SQLite templates and React Redux Frontend.",
   "main": "installer.js",
   "bin": {
@@ -21,7 +21,7 @@
   "files": [
     "installer.js",
     "Configuration/",
-    "template/"
+    "template/","images/","utils/"
   ],
   "keywords": [
     "cli",
